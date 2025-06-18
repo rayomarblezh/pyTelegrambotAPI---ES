@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentación pyTelegramBotAPI - Español</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const nav = document.querySelector('nav ul');
+            
+            hamburger.addEventListener('click', function() {
+                nav.classList.toggle('hidden');
+                nav.classList.toggle('flex');
+            });
+        });
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+        .monospace {
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+        }
+        .code-block {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            border-radius: 0.375rem;
+            padding: 1rem;
+            overflow-x: auto;
+        }
+        .keyword {
+            color: #f92672;
+        }
+        .string {
+            color: #e6db74;
+        }
+        .comment {
+            color: #75715e;
+        }
+        .function {
+            color: #66d9ef;
+        }
+        .parameter {
+            color: #fd971f;
+        }
+        .number {
+            color: #ae81ff;
+        }
+        .operator {
+            color: #f92672;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <div class="container mx-auto px-4 py-8 max-w-6xl">
+        <!-- Header -->
+        <header class="mb-12">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h1 class="text-4xl font-bold text-black">pyTelegramBotAPI</h1>
+                    <p class="text-xl text-gray-600 mt-2">Una biblioteca Python para la API de Telegram</p>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="bg-gray-100 px-4 py-2 rounded-lg">
+                        <span class="text-black font-medium">Versión: 4.12.0</span>
+                    </div>
+                    <button class="hamburger md:hidden focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <nav class="mt-8">
+                <ul class="hidden md:flex flex-wrap gap-4">
+                    <li><a href="#introduccion" class="px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-700 transition">Introducción</a></li>
+                    <li><a href="#instalacion" class="px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-lg transition">Instalación</a></li>
+                    <li><a href="#ejemplos" class="px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-lg transition">Ejemplos</a></li>
+                    <li><a href="#api" class="px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-lg transition">Referencia API</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main class="space-y-12">
+            <!-- Introducción -->
+            <section id="introduccion" class="bg-white p-8 rounded-xl shadow-md">
+                <h2 class="text-3xl font-bold text-black mb-6">Introducción</h2>
+                <p class="text-lg mb-4">pyTelegramBotAPI es una biblioteca Python simple pero extensible para la API de Telegram Bot. Proporciona una interfaz sencilla y fácil de usar para interactuar con la API de Telegram.</p>
+                
+                <div class="grid md:grid-cols-2 gap-8 mt-8">
+                    <div class="bg-indigo-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold text-black mb-3">Características principales</h3>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <span class="text-indigo-500 mr-2">✓</span>
+                                <span>Soporte completo para la API de Telegram Bot</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-indigo-500 mr-2">✓</span>
+                                <span>Fácil de usar y extender</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-indigo-500 mr-2">✓</span>
+                                <span>Soporte para manejadores de comandos y mensajes</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-indigo-500 mr-2">✓</span>
+                                <span>Manejo de teclados personalizados</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-green-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold text-green-700 mb-3">Casos de uso</h3>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <span class="text-green-500 mr-2">✓</span>
+                                <span>Bots de atención al cliente</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-green-500 mr-2">✓</span>
+                                <span>Notificaciones automáticas</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-green-500 mr-2">✓</span>
+                                <span>Integraciones con otros servicios</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-green-500 mr-2">✓</span>
+                                <span>Juegos y quizzes interactivos</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Instalación -->
+            <section id="instalacion" class="bg-white p-8 rounded-xl shadow-md">
+                <h2 class="text-3xl font-bold text-black mb-6">Instalación</h2>
+                <p class="text-lg mb-6">Puedes instalar pyTelegramBotAPI usando pip, el gestor de paquetes de Python:</p>
+                
+                <div class="code-block mb-6">
+                    <pre class="monospace"><span class="comment"># Instalación básica</span>
+<span class="keyword">pip</span> <span class="function">install</span> pyTelegramBotAPI
+
+<span class="comment"># Instalación con soporte para API asíncrona</span>
+<span class="keyword">pip</span> <span class="function">install</span> pyTelegramBotAPI<span class="operator">[</span><span class="parameter">async</span><span class="operator">]</span></pre>
+                </div>
+
+                <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6">
+                    <div class="flex">
+                        <div class="flex-shrink-0">
+                            <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <div class="ml-3">
+                            <p class="text-sm text-yellow-700">
+                                Requiere Python 3.7 o superior. Se recomienda usar un entorno virtual para la instalación.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Ejemplos -->
+            <section id="ejemplos" class="bg-white p-8 rounded-xl shadow-md">
+                <h2 class="text-3xl font-bold text-black mb-6">Ejemplos básicos</h2>
+                
+                <h3 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">1. Bot eco</h3>
+                <p class="mb-4">Un bot simple que repite todo lo que le envíes:</p>
+                <div class="code-block mb-8">
+                    <pre class="monospace"><span class="keyword">import</span> telebot
+
+<span class="comment"># Crea una instancia del bot con tu token</span>
+<span class="parameter">bot</span> <span class="operator">=</span> telebot<span class="operator">.</span>TeleBot(<span class="string">"TU_TOKEN_AQUÍ"</span>)
+
+<span class="comment"># Manejador para mensajes de texto</span>
+<span class="keyword">@</span><span class="parameter">bot</span><span class="operator">.</span>message_handler(<span class="parameter">func</span><span class="operator">=</span><span class="keyword">lambda</span> <span class="parameter">message</span>: <span class="keyword">True</span>)
+<span class="keyword">def</span> <span class="function">echo_all</span>(<span class="parameter">message</span>):
+    <span class="parameter">bot</span><span class="operator">.</span>reply_to(<span class="parameter">message</span>, <span class="parameter">message</span><span class="operator">.</span>text)
+
+<span class="comment"># Inicia el bot</span>
+<span class="parameter">bot</span><span class="operator">.</span>polling()</pre>
+                </div>
+
+                <h3 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">2. Bot con comandos</h3>
+                <p class="mb-4">Un bot que responde a comandos específicos:</p>
+                <div class="code-block mb-8">
+                    <pre class="monospace"><span class="keyword">import</span> telebot
+
+<span class="parameter">bot</span> <span class="operator">=</span> telebot<span class="operator">.</span>TeleBot(<span class="string">"TU_TOKEN_AQUÍ"</span>)
+
+<span class="comment"># Comando /start</span>
+<span class="keyword">@</span><span class="parameter">bot</span><span class="operator">.</span>message_handler(<span class="parameter">commands</span><span class="operator">=</span>[<span class="string">'start'</span>])
+<span class="keyword">def</span> <span class="function">send_welcome</span>(<span class="parameter">message</span>):
+    <span class="parameter">bot</span><span class="operator">.</span>reply_to(<span class="parameter">message</span>, <span class="string">"¡Hola! Soy un bot de ejemplo."</span>)
+
+<span class="comment"># Comando /help</span>
+<span class="keyword">@</span><span class="parameter">bot</span><span class="operator">.</span>message_handler(<span class="parameter">commands</span><span class="operator">=</span>[<span class="string">'help'</span>])
+<span class="keyword">def</span> <span class="function">send_help</span>(<span class="parameter">message</span>):
+    <span class="parameter">bot</span><span class="operator">.</span>reply_to(<span class="parameter">message</span>, <span class="string">"Comandos disponibles:\n/start - Inicia el bot\n/help - Muestra esta ayuda"</span>)
+
+<span class="parameter">bot</span><span class="operator">.</span>polling()</pre>
+                </div>
+
+                <h3 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">3. Bot con teclado personalizado</h3>
+                <p class="mb-4">Un bot que muestra un teclado personalizado:</p>
+                <div class="code-block">
+                    <pre class="monospace"><span class="keyword">import</span> telebot
+<span class="keyword">from</span> telebot <span class="keyword">import</span> types
+
+<span class="parameter">bot</span> <span class="operator">=</span> telebot<span class="operator">.</span>TeleBot(<span class="string">"TU_TOKEN_AQUÍ"</span>)
+
+<span class="comment"># Crea un teclado personalizado</span>
+<span class="keyword">@</span><span class="parameter">bot</span><span class="operator">.</span>message_handler(<span class="parameter">commands</span><span class="operator">=</span>[<span class="string">'opciones'</span>])
+<span class="keyword">def</span> <span class="function">show_options</span>(<span class="parameter">message</span>):
+    <span class="parameter">markup</span> <span class="operator">=</span> types<span class="operator">.</span>ReplyKeyboardMarkup(<span class="parameter">row_width</span><span class="operator">=</span><span class="number">2</span>)
+    <span class="parameter">item1</span> <span class="operator">=</span> types<span class="operator">.</span>KeyboardButton(<span class="string">"Opción 1"</span>)
+    <span class="parameter">item2</span> <span class="operator">=</span> types<span class="operator">.</span>KeyboardButton(<span class="string">"Opción 2"</span>)
+    <span class="parameter">item3</span> <span class="operator">=</span> types<span class="operator">.</span>KeyboardButton(<span class="string">"Opción 3"</span>)
+    <span class="parameter">markup</span><span class="operator">.</span>add(<span class="parameter">item1</span>, <span class="parameter">item2</span>, <span class="parameter">item3</span>)
+    
+    <span class="parameter">bot</span><span class="operator">.</span>send_message(<span class="parameter">message</span><span class="operator">.</span>chat<span class="operator">.</span>id, <span class="string">"Elige una opción:"</span>, <span class="parameter">reply_markup</span><span class="operator">=</span><span class="parameter">markup</span>)
+
+<span class="comment"># Maneja las opciones seleccionadas</span>
+<span class="keyword">@</span><span class="parameter">bot</span><span class="operator">.</span>message_handler(<span class="parameter">func</span><span class="operator">=</span><span class="keyword">lambda</span> <span class="parameter">message</span>: <span class="keyword">True</span>)
+<span class="keyword">def</span> <span class="function">handle_message</span>(<span class="parameter">message</span>):
+    <span class="keyword">if</span> <span class="parameter">message</span><span class="operator">.</span>text <span class="operator">==</span> <span class="string">"Opción 1"</span>:
+        <span class="parameter">bot</span><span class="operator">.</span>send_message(<span class="parameter">message</span><span class="operator">.</span>chat<span class="operator">.</span>id, <span class="string">"Elegiste la Opción 1"</span>)
+    <span class="keyword">elif</span> <span class="parameter">message</span><span class="operator">.</span>text <span class="operator">==</span> <span class="string">"Opción 2"</span>:
+        <span class="parameter">bot</span><span class="operator">.</span>send_message(<span class="parameter">message</span><span class="operator">.</span>chat<span class="operator">.</span>id, <span class="string">"Elegiste la Opción 2"</span>)
+    <span class="keyword">elif</span> <span class="parameter">message</span><span class="operator">.</span>text <span class="operator">==</span> <span class="string">"Opción 3"</span>:
+        <span class="parameter">bot</span><span class="operator">.</span>send_message(<span class="parameter">message</span><span class="operator">.</span>chat<span class="operator">.</span>id, <span class="string">"Elegiste la Opción 3"</span>)
+
+<span class="parameter">bot</span><span class="operator">.</span>polling()</pre>
+                </div>
+            </section>
+
+            <!-- API Reference -->
+            <section id="api" class="bg-white p-8 rounded-xl shadow-md">
+                <h2 class="text-3xl font-bold text-black mb-6">Referencia API</h2>
+                
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Método</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Descripción</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Ejemplo</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-indigo-600">send_message</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Envía un mensaje de texto</td>
+                                <td class="px-6 py-4 whitespace-nowrap font-mono text-sm">bot.send_message(chat_id, text)</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-indigo-600">reply_to</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Responde a un mensaje específico</td>
+                                <td class="px-6 py-4 whitespace-nowrap font-mono text-sm">bot.reply_to(message, text)</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-indigo-600">send_photo</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Envía una foto</td>
+                                <td class="px-6 py-4 whitespace-nowrap font-mono text-sm">bot.send_photo(chat_id, photo)</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-indigo-600">send_document</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Envía un documento</td>
+                                <td class="px-6 py-4 whitespace-nowrap font-mono text-sm">bot.send_document(chat_id, document)</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-indigo-600">edit_message_text</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Edita el texto de un mensaje</td>
+                                <td class="px-6 py-4 whitespace-nowrap font-mono text-sm">bot.edit_message_text(new_text, chat_id, message_id)</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-indigo-600">delete_message</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Elimina un mensaje</td>
+                                <td class="px-6 py-4 whitespace-nowrap font-mono text-sm">bot.delete_message(chat_id, message_id)</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-indigo-600">send_chat_action</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Muestra acción del bot (escribiendo, grabando voz, etc.)</td>
+                                <td class="px-6 py-4 whitespace-nowrap font-mono text-sm">bot.send_chat_action(chat_id, action)</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-indigo-600">forward_message</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Reenvía un mensaje</td>
+                                <td class="px-6 py-4 whitespace-nowrap font-mono text-sm">bot.forward_message(to_chat_id, from_chat_id, message_id)</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-indigo-600">send_audio</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Envía un audio</td>
+                                <td class="px-6 py-4 whitespace-nowrap font-mono text-sm">bot.send_audio(chat_id, audio)</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-indigo-600">send_voice</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Envía un mensaje de voz</td>
+                                <td class="px-6 py-4 whitespace-nowrap font-mono text-sm">bot.send_voice(chat_id, voice)</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-indigo-600">send_video</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Envía un video</td>
+                                <td class="px-6 py-4 whitespace-nowrap font-mono text-sm">bot.send_video(chat_id, video)</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-indigo-600">send_location</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Envía una ubicación</td>
+                                <td class="px-6 py-4 whitespace-nowrap font-mono text-sm">bot.send_location(chat_id, latitude, longitude)</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-indigo-600">send_contact</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Envía un contacto</td>
+                                <td class="px-6 py-4 whitespace-nowrap font-mono text-sm">bot.send_contact(chat_id, phone_number, first_name)</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-indigo-600">send_sticker</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Envía un sticker</td>
+                                <td class="px-6 py-4 whitespace-nowrap font-mono text-sm">bot.send_sticker(chat_id, sticker)</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-indigo-600">answer_callback_query</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Responde a una consulta de callback</td>
+                                <td class="px-6 py-4 whitespace-nowrap font-mono text-sm">bot.answer_callback_query(callback_query_id)</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-indigo-600">edit_message_reply_markup</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Edita el markup de un mensaje</td>
+                                <td class="px-6 py-4 whitespace-nowrap font-mono text-sm">bot.edit_message_reply_markup(chat_id, message_id, reply_markup)</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-indigo-600">get_chat</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Obtiene información de un chat</td>
+                                <td class="px-6 py-4 whitespace-nowrap font-mono text-sm">bot.get_chat(chat_id)</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-indigo-600">get_chat_member</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Obtiene información de un miembro del chat</td>
+                                <td class="px-6 py-4 whitespace-nowrap font-mono text-sm">bot.get_chat_member(chat_id, user_id)</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-indigo-600">get_chat_administrators</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Obtiene los administradores de un chat</td>
+                                <td class="px-6 py-4 whitespace-nowrap font-mono text-sm">bot.get_chat_administrators(chat_id)</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap font-mono text-sm text-indigo-600">get_chat_members_count</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Obtiene el número de miembros en un chat</td>
+                                <td class="px-6 py-4 whitespace-nowrap font-mono text-sm">bot.get_chat_members_count(chat_id)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">Tipos de manejadores</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="border border-gray-200 rounded-lg p-4">
+                        <h4 class="font-mono text-lg font-semibold mb-2">message_handler</h4>
+                        <p class="text-gray-600 mb-3">Maneja mensajes basados en diferentes criterios:</p>
+                        <ul class="space-y-2 text-sm">
+                            <li class="font-mono">commands=['start', 'help']</li>
+                            <li class="font-mono">func=lambda m: True</li>
+                            <li class="font-mono">content_types=['text', 'photo']</li>
+                        </ul>
+                    </div>
+                    <div class="border border-gray-200 rounded-lg p-4">
+                        <h4 class="font-mono text-lg font-semibold mb-2">callback_query_handler</h4>
+                        <p class="text-gray-600 mb-3">Maneja interacciones con botones inline:</p>
+                        <ul class="space-y-2 text-sm">
+                            <li class="font-mono">func=lambda call: True</li>
+                            <li class="font-mono">Manejo de datos en call.data</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="mt-16 pt-8 border-t border-gray-200">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-lg font-semibold text-black">pyTelegramBotAPI</h3>
+                    <p class="text-gray-600">Documentación no oficial en español</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="https://github.com/rayomarblezh" class="text-gray-500 hover:text-black">
+                        <span class="sr-only">GitHub</span>
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.85.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-8 text-center text-sm text-gray-500">
+                <p>© 2025 Documentación de pyTelegramBotAPI - ES. Todos los derechos reservados.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
